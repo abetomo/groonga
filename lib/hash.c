@@ -2769,11 +2769,15 @@ grn_hash_rehash(grn_ctx *ctx, grn_hash *hash, uint32_t expected_n_entries)
       grn_obj_unref(ctx, domain);
     }
   }
-  if (expected_n_entries > INT_MAX) {
+  if (expected_n_entries > MAX_INDEX_SIZE) {
     return GRN_NO_MEMORY_AVAILABLE;
   }
   while (new_index_size <= expected_n_entries) {
     new_index_size *= 2;
+  }
+
+  if (new_index_size > MAX_INDEX_SIZE) {
+    new_index_size = MAX_INDEX_SIZE;
   }
 
   {
@@ -3255,7 +3259,7 @@ grn_hash_ensure_rehash(grn_ctx *ctx,
                        uint32_t threshold,
                        const char *tag)
 {
-  if (threshold < *hash->max_offset) {
+  if (threshold < *hash->max_offset || threshold > MAX_INDEX_SIZE) {
     return GRN_SUCCESS;
   }
 
