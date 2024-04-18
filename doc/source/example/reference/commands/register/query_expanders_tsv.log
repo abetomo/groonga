@@ -1,4 +1,19 @@
 Execution example::
 
   register query_expanders/tsv
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -3,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[plugin][register] cannot find plugin file: </build/doc/../plugins/query_expanders/tsv.so>",
+  #     [
+  #       [
+  #         "grn_plugin_set_name_resolve_error",
+  #         "lib/plugin.c",
+  #         921
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]

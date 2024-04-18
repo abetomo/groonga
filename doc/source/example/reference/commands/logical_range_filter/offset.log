@@ -36,21 +36,21 @@ Execution example::
   #     [
   #       "Mroonga",
   #       "I also started to use Mroonga. It's also very fast! Really fast!",
-  #       1436288400.0,
+  #       1436320800.0,
   #       15,
   #       "Groonga"
   #     ],
   #     [
   #       "Good-bye Senna",
   #       "I migrated all Senna system!",
-  #       1436367600.0,
+  #       1436400000.0,
   #       3,
   #       "Senna"
   #     ],
   #     [
   #       "Good-bye Tritonn",
   #       "I also migrated all Tritonn system!",
-  #       1436371200.0,
+  #       1436403600.0,
   #       3,
   #       "Senna"
   #     ]

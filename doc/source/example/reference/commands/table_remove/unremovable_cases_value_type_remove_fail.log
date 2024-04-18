@@ -11,7 +11,7 @@ Execution example::
   #       [
   #         "is_removable_table",
   #         "lib/db.c",
-  #         11463
+  #         9951
   #       ]
   #     ]
   #   ],

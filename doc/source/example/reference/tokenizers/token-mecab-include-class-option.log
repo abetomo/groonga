@@ -3,114 +3,16 @@ Execution example::
   tokenize 'TokenMecab("include_class", true)' '彼の名前は山田さんのはずです。'
   # [
   #   [
-  #     0,
+  #     -22,
   #     1337566253.89858,
-  #     0.000355720520019531
-  #   ],
-  #   [
-  #     {
-  #       "value": "彼",
-  #       "position": 0,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "名詞",
-  #         "subclass0": "代名詞",
-  #         "subclass1": "一般"
-  #       }
-  #     },
-  #     {
-  #       "value": "の",
-  #       "position": 1,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "助詞",
-  #         "subclass0": "連体化"
-  #       }
-  #     },
-  #     {
-  #       "value": "名前",
-  #       "position": 2,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "名詞",
-  #         "subclass0": "一般"
-  #       }
-  #     },
-  #     {
-  #       "value": "は",
-  #       "position": 3,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "助詞",
-  #         "subclass0": "係助詞"
-  #       }
-  #     },
-  #     {
-  #       "value": "山田",
-  #       "position": 4,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "名詞",
-  #         "subclass0": "固有名詞",
-  #         "subclass1": "人名",
-  #         "subclass2": "姓"
-  #       }
-  #     },
-  #     {
-  #       "value": "さん",
-  #       "position": 5,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "名詞",
-  #         "subclass0": "接尾",
-  #         "subclass1": "人名"
-  #       }
-  #     },
-  #     {
-  #       "value": "の",
-  #       "position": 6,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "助詞",
-  #         "subclass0": "連体化"
-  #       }
-  #     },
-  #     {
-  #       "value": "はず",
-  #       "position": 7,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "名詞",
-  #         "subclass0": "非自立",
-  #         "subclass1": "一般"
-  #       }
-  #     },
-  #     {
-  #       "value": "です",
-  #       "position": 8,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "助動詞"
-  #       }
-  #     },
-  #     {
-  #       "value": "。",
-  #       "position": 9,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false,
-  #       "metadata": {
-  #         "class": "記号",
-  #         "subclass0": "句点"
-  #       }
-  #     }
+  #     0.000355720520019531,
+  #     "[tokenize] failed to set tokenizer: <TokenMecab(\"include_class\", true)>: [info][set][default-tokenizer][(anonymous)] failed to ",
+  #     [
+  #       [
+  #         "grn_proc_lexicon_open",
+  #         "lib/proc/proc_lexicon.c",
+  #         49
+  #       ]
+  #     ]
   #   ]
   # ]

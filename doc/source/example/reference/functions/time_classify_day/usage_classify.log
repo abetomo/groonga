@@ -5,49 +5,21 @@ Execution example::
     --output_columns 'name, time_classify_day(timestamp)'
   # [
   #   [
-  #     0,
+  #     -63,
   #     1337566253.89858,
-  #     0.000355720520019531
+  #     0.000355720520019531,
+  #     "Syntax error: <name, time_classify_day|(|timestamp)>",
+  #     [
+  #       [
+  #         "yy_syntax_error",
+  #         "grn_ecmascript.lemon",
+  #         196
+  #       ]
+  #     ]
   #   ],
   #   [
   #     [
-  #       [
-  #         6
-  #       ],
-  #       [
-  #         [
-  #           "name",
-  #           "ShortText"
-  #         ],
-  #         [
-  #           "time_classify_day",
-  #           null
-  #         ]
-  #       ],
-  #       [
-  #         "Apple",
-  #         1588258800.0
-  #       ],
-  #       [
-  #         "Apple",
-  #         1588258800.0
-  #       ],
-  #       [
-  #         "Orange",
-  #         1588258800.0
-  #       ],
-  #       [
-  #         "Apple",
-  #         1588258800.0
-  #       ],
-  #       [
-  #         "Banana",
-  #         1588258800.0
-  #       ],
-  #       [
-  #         "Banana",
-  #         1588258800.0
-  #       ]
+  # 
   #     ]
   #   ]
   # ]

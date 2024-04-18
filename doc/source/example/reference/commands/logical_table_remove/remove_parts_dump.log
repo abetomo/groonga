@@ -9,5 +9,5 @@ Execution example::
   # load --table Logs_20160318
   # [
   # ["_id","timestamp"],
-  # [1,1458228600.0]
+  # [1,1458261000.0]
   # ]

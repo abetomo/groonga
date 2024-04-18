@@ -1,7 +1,22 @@
 Execution example::
 
   plugin_register token_filters/stem
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -3,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[plugin][register] cannot find plugin file: </build/doc/../plugins/token_filters/stem.so>",
+  #     [
+  #       [
+  #         "grn_plugin_set_name_resolve_error",
+  #         "lib/plugin.c",
+  #         921
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   table_create FrenchMemos TABLE_NO_KEY
   # [[0,1337566253.89858,0.000355720520019531],true]
   column_create FrenchMemos content COLUMN_SCALAR ShortText
@@ -10,10 +25,40 @@ Execution example::
     --default_tokenizer TokenBigram \
     --normalizer NormalizerAuto \
     --token_filters 'TokenFilterStem("algorithm", "french")'
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[info][set][token-filters][FrenchTerms] failed to parse token filters: <TokenFilterStem(\"algorithm\", \"french\")>: Syntax error: ",
+  #     [
+  #       [
+  #         "grn_obj_set_info_table_modules_text",
+  #         "lib/db.c",
+  #         9002
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   column_create FrenchTerms french_memos_content \
      COLUMN_INDEX|WITH_POSITION FrenchMemos content
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[column][create] table doesn't exist: <FrenchTerms>",
+  #     [
+  #       [
+  #         "command_column_create",
+  #         "lib/proc/proc_column.c",
+  #         214
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   load --table FrenchMemos
   [
   {"content": "maintenait"},
@@ -30,7 +75,7 @@ Execution example::
   #   [
   #     [
   #       [
-  #         2
+  #         0
   #       ],
   #       [
   #         [
@@ -41,14 +86,6 @@ Execution example::
   #           "content",
   #           "ShortText"
   #         ]
-  #       ],
-  #       [
-  #         1,
-  #         "maintenait"
-  #       ],
-  #       [
-  #         2,
-  #         "maintenant"
   #       ]
   #     ]
   #   ]

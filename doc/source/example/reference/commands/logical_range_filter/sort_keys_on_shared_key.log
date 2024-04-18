@@ -1,7 +1,22 @@
 Execution example::
 
   plugin_register functions/time
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -3,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[plugin][register] cannot find plugin file: </build/doc/../plugins/functions/time.so>",
+  #     [
+  #       [
+  #         "grn_plugin_set_name_resolve_error",
+  #         "lib/plugin.c",
+  #         921
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   logical_select \
     --logical_table Entries \
     --shard_key created_at \
@@ -13,53 +28,15 @@ Execution example::
     --output_columns hour2,n_likes,_key
   # [
   #   [
-  #     0,
+  #     -63,
   #     1337566253.89858,
-  #     0.000355720520019531
-  #   ],
-  #   [
+  #     0.000355720520019531,
+  #     "syntax error: <Syntax error: <time_classify_hour|(|created_at, 2)>: [expr][parse] unknown identifier: <time_classify_hour>>(-63",
   #     [
   #       [
-  #         5
-  #       ],
-  #       [
-  #         [
-  #           "hour2",
-  #           "Time"
-  #         ],
-  #         [
-  #           "n_likes",
-  #           "UInt32"
-  #         ],
-  #         [
-  #           "_key",
-  #           "ShortText"
-  #         ]
-  #       ],
-  #       [
-  #         1436367600.0,
-  #         3,
-  #         "Good-bye Senna"
-  #       ],
-  #       [
-  #         1436367600.0,
-  #         3,
-  #         "Good-bye Tritonn"
-  #       ],
-  #       [
-  #         1436281200.0,
-  #         10,
-  #         "Groonga"
-  #       ],
-  #       [
-  #         1436281200.0,
-  #         5,
-  #         "The first post!"
-  #       ],
-  #       [
-  #         1436288400.0,
-  #         15,
-  #         "Mroonga"
+  #         "parse",
+  #         "lib/groonga/plugins/sharding/dynamic_columns.rb",
+  #         236
   #       ]
   #     ]
   #   ]

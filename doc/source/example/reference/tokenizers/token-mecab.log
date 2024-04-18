@@ -3,22 +3,16 @@ Execution example::
   tokenize TokenMecab "東京都"
   # [
   #   [
-  #     0,
+  #     -22,
   #     1337566253.89858,
-  #     0.000355720520019531
-  #   ],
-  #   [
-  #     {
-  #       "value": "東京",
-  #       "position": 0,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false
-  #     },
-  #     {
-  #       "value": "都",
-  #       "position": 1,
-  #       "force_prefix": false,
-  #       "force_prefix_search": false
-  #     }
+  #     0.000355720520019531,
+  #     "[tokenize] failed to set tokenizer: <TokenMecab>: [info][set][default-tokenizer][(anonymous)] unknown tokenizer: <TokenMecab>",
+  #     [
+  #       [
+  #         "grn_proc_lexicon_open",
+  #         "lib/proc/proc_lexicon.c",
+  #         49
+  #       ]
+  #     ]
   #   ]
   # ]

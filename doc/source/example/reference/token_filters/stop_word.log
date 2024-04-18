@@ -1,7 +1,22 @@
 Execution example::
 
   plugin_register token_filters/stop_word
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -3,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[plugin][register] cannot find plugin file: </build/doc/../plugins/token_filters/stop_word.so>",
+  #     [
+  #       [
+  #         "grn_plugin_set_name_resolve_error",
+  #         "lib/plugin.c",
+  #         921
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   table_create Memos TABLE_NO_KEY
   # [[0,1337566253.89858,0.000355720520019531],true]
   column_create Memos content COLUMN_SCALAR ShortText
@@ -10,52 +25,109 @@ Execution example::
     --default_tokenizer TokenBigram \
     --normalizer NormalizerAuto \
     --token_filters TokenFilterStopWord
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[info][set][token-filters][Terms] failed to parse token filters: <TokenFilterStopWord>: Syntax error: <TokenFilterStopWord||>: ",
+  #     [
+  #       [
+  #         "grn_obj_set_info_table_modules_text",
+  #         "lib/db.c",
+  #         9002
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   column_create Terms memos_content COLUMN_INDEX|WITH_POSITION Memos content
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[column][create] table doesn't exist: <Terms>",
+  #     [
+  #       [
+  #         "command_column_create",
+  #         "lib/proc/proc_column.c",
+  #         214
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   column_create Terms is_stop_word COLUMN_SCALAR Bool
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[column][create] table doesn't exist: <Terms>",
+  #     [
+  #       [
+  #         "command_column_create",
+  #         "lib/proc/proc_column.c",
+  #         214
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   load --table Terms
   [
   {"_key": "and", "is_stop_word": true}
   ]
-  # [[0,1337566253.89858,0.000355720520019531],1]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "nonexistent table: <Terms>",
+  #     [
+  #       [
+  #         "grn_load_internal",
+  #         "lib/load.c",
+  #         1871
+  #       ]
+  #     ]
+  #   ],
+  #   0
+  # ]
   load --table Memos
   [
   {"content": "Hello"},
   {"content": "Hello and Good-bye"},
   {"content": "Good-bye"}
   ]
-  # [[0,1337566253.89858,0.000355720520019531],3]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "invalid command name: [",
+  #     [
+  #       [
+  #         "grn_ctx_qe_exec",
+  #         "lib/ctx.cpp",
+  #         1994
+  #       ]
+  #     ]
+  #   ]
+  # ]
   select Memos --match_columns content --query "Hello and"
   # [
   #   [
-  #     0,
+  #     -22,
   #     1337566253.89858,
-  #     0.000355720520019531
-  #   ],
-  #   [
+  #     0.000355720520019531,
+  #     "invalid command name: {",
   #     [
   #       [
-  #         2
-  #       ],
-  #       [
-  #         [
-  #           "_id",
-  #           "UInt32"
-  #         ],
-  #         [
-  #           "content",
-  #           "ShortText"
-  #         ]
-  #       ],
-  #       [
-  #         1,
-  #         "Hello"
-  #       ],
-  #       [
-  #         2,
-  #         "Hello and Good-bye"
+  #         "grn_ctx_qe_exec",
+  #         "lib/ctx.cpp",
+  #         1994
   #       ]
   #     ]
   #   ]

@@ -7,10 +7,40 @@ Execution example::
   table_create JapaneseTerms TABLE_PAT_KEY ShortText \
     --default_tokenizer TokenMecab \
     --normalizer NormalizerNFKC150
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[table][create][JapaneseTerms] failed to set default tokenizer: <TokenMecab>: [info][set][default-tokenizer][JapaneseTerms] unk",
+  #     [
+  #       [
+  #         "command_table_create",
+  #         "lib/proc/proc_table.c",
+  #         207
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   column_create JapaneseTerms japanese_entries_content \
     COLUMN_INDEX|WITH_POSITION JapaneseEntries content
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -22,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[column][create] table doesn't exist: <JapaneseTerms>",
+  #     [
+  #       [
+  #         "command_column_create",
+  #         "lib/proc/proc_column.c",
+  #         214
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   load --table JapaneseEntries
   [
   {"content": "ようこそ！これが最初の投稿です！"},
@@ -35,7 +65,7 @@ Execution example::
   #   [
   #     [
   #       [
-  #         2
+  #         0
   #       ],
   #       [
   #         [
@@ -46,14 +76,6 @@ Execution example::
   #           "_score",
   #           "Int32"
   #         ]
-  #       ],
-  #       [
-  #         "Groongaを使い始めました。とても速いですね！",
-  #         1
-  #       ],
-  #       [
-  #         "Mroongaも使い始めました。これもとても速いですね！本当に速い！",
-  #         1
   #       ]
   #     ]
   #   ]

@@ -26,6 +26,6 @@ Execution example::
   #       "n_records": 256,
   #       "disk_usage": 1052672
   #     },
-  #     "disk_usage": 26542080
+  #     "disk_usage": 22347776
   #   }
   # ]

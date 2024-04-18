@@ -5,53 +5,21 @@ Execution example::
     --output_columns '_key, time_classify_day_of_week(created_at)'
   # [
   #   [
-  #     0,
+  #     -63,
   #     1337566253.89858,
-  #     0.000355720520019531
+  #     0.000355720520019531,
+  #     "Syntax error: <_key, time_classify_day_of_week|(|created_at)>",
+  #     [
+  #       [
+  #         "yy_syntax_error",
+  #         "grn_ecmascript.lemon",
+  #         196
+  #       ]
+  #     ]
   #   ],
   #   [
   #     [
-  #       [
-  #         7
-  #       ],
-  #       [
-  #         [
-  #           "_key",
-  #           "ShortText"
-  #         ],
-  #         [
-  #           "time_classify_day_of_week",
-  #           null
-  #         ]
-  #       ],
-  #       [
-  #         "Sunday",
-  #         0
-  #       ],
-  #       [
-  #         "Monday",
-  #         1
-  #       ],
-  #       [
-  #         "Tuesday",
-  #         2
-  #       ],
-  #       [
-  #         "Wednesday",
-  #         3
-  #       ],
-  #       [
-  #         "Thursday",
-  #         4
-  #       ],
-  #       [
-  #         "Friday",
-  #         5
-  #       ],
-  #       [
-  #         "Saturday",
-  #         6
-  #       ]
+  # 
   #     ]
   #   ]
   # ]

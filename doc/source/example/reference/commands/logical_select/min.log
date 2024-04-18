@@ -45,7 +45,7 @@ Execution example::
   #         1,
   #         "Good-bye Senna",
   #         "I migrated all Senna system!",
-  #         1436367600.0,
+  #         1436400000.0,
   #         3,
   #         "Senna"
   #       ],
@@ -53,7 +53,7 @@ Execution example::
   #         2,
   #         "Good-bye Tritonn",
   #         "I also migrated all Tritonn system!",
-  #         1436371200.0,
+  #         1436403600.0,
   #         3,
   #         "Senna"
   #       ]

@@ -1,7 +1,22 @@
 Execution example::
 
   plugin_register functions/string
-  # [[0,1337566253.89858,0.000355720520019531],true]
+  # [
+  #   [
+  #     -3,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "[plugin][register] cannot find plugin file: </build/doc/../plugins/functions/string.so>",
+  #     [
+  #       [
+  #         "grn_plugin_set_name_resolve_error",
+  #         "lib/plugin.c",
+  #         921
+  #       ]
+  #     ]
+  #   ],
+  #   false
+  # ]
   logical_count \
     --logical_table Entries \
     --shard_key created_at \
@@ -9,4 +24,18 @@ Execution example::
     --columns[content_length].type UInt32 \
     --columns[content_length].value 'string_length(content)' \
     --filter 'content_length >= 40'
-  # [[0,1337566253.89858,0.000355720520019531],2]
+  # [
+  #   [
+  #     -63,
+  #     1337566253.89858,
+  #     0.000355720520019531,
+  #     "syntax error: <Syntax error: <string_length|(|content)>: [expr][parse] unknown identifier: <string_length>>(-63)",
+  #     [
+  #       [
+  #         "unref",
+  #         "lib/groonga/plugins/sharding/logical_enumerator.rb",
+  #         175
+  #       ]
+  #     ]
+  #   ]
+  # ]

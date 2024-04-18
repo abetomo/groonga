@@ -296,21 +296,21 @@ Execution example::
   #       "path": null,
   #       "size": 4
   #     },
-  #     "TokenMecab": {
-  #       "id": 64,
-  #       "name": "TokenMecab",
-  #       "opened": true,
+  #     "BFloat16": {
+  #       "id": 20,
+  #       "name": "BFloat16",
+  #       "opened": false,
   #       "n_elements": 4,
   #       "type": {
-  #         "id": 33,
-  #         "name": "proc"
+  #         "id": 32,
+  #         "name": "type"
   #       },
   #       "flags": {
-  #         "value": 4096,
-  #         "names": "CUSTOM_NAME"
+  #         "value": 16,
+  #         "names": "KEY_FLOAT"
   #       },
-  #       "path": "tokenizers/mecab.so",
-  #       "plugin_id": 1
+  #       "path": null,
+  #       "size": 2
   #     },
   #     "Memos": {
   #       "id": 256,

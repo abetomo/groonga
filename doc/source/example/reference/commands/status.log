@@ -35,6 +35,8 @@ Execution example::
   #       "apache_arrow": true,
   #       "xxhash": true,
   #       "blosc": true,
+  #       "bfloat16": false,
+  #       "h3": false,
   #       "back_trace": true,
   #       "reference_count": false
   #     },

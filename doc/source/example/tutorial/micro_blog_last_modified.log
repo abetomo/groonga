@@ -10,7 +10,7 @@ Execution example::
   #   [
   #     [
   #       [
-  #         5
+  #         0
   #       ],
   #       [
   #         [
@@ -25,36 +25,11 @@ Execution example::
   #           "last_modified",
   #           "Time"
   #         ]
-  #       ],
-  #       [
-  #         "Alice",
-  #         "I've created micro-blog!",
-  #         1268795100.0
-  #       ],
-  #       [
-  #         "Bob",
-  #         "First post. test,test...",
-  #         1268794800.0
-  #       ],
-  #       [
-  #         "Alice",
-  #         "@bob Welcome!!!",
-  #         1268795100.0
-  #       ],
-  #       [
-  #         "Bob",
-  #         "@alice Thanks!",
-  #         1268798400.0
-  #       ],
-  #       [
-  #         "Bob",
-  #         "I've just used 'Try-Groonga' now! #groonga",
-  #         1268802000.0
   #       ]
   #     ],
   #     [
   #       [
-  #         1
+  #         0
   #       ],
   #       [
   #         [
@@ -65,15 +40,11 @@ Execution example::
   #           "_nsubrecs",
   #           "Int32"
   #         ]
-  #       ],
-  #       [
-  #         "groonga",
-  #         1
   #       ]
   #     ],
   #     [
   #       [
-  #         2
+  #         0
   #       ],
   #       [
   #         [
@@ -84,14 +55,6 @@ Execution example::
   #           "_nsubrecs",
   #           "Int32"
   #         ]
-  #       ],
-  #       [
-  #         "alice",
-  #         2
-  #       ],
-  #       [
-  #         "bob",
-  #         3
   #       ]
   #     ]
   #   ]

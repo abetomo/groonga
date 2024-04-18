@@ -45,7 +45,7 @@ Execution example::
   #         1,
   #         "The first post!",
   #         "Welcome! This is my first post!",
-  #         1436281200.0,
+  #         1436313600.0,
   #         5,
   #         "Hello"
   #       ],
@@ -53,7 +53,7 @@ Execution example::
   #         2,
   #         "Groonga",
   #         "I started to use Groonga. It's very fast!",
-  #         1436284800.0,
+  #         1436317200.0,
   #         10,
   #         "Groonga"
   #       ]

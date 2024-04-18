@@ -3,24 +3,21 @@ Execution example::
   select Memos --output_columns 'string_slice("Groonga", "(roon)(g)", 2)'
   # [
   #   [
-  #     0,
+  #     -63,
   #     1337566253.89858,
-  #     0.000355720520019531
+  #     0.000355720520019531,
+  #     "Syntax error: <string_slice|(|\"Groonga\", \"(roon)(g)\", 2)>",
+  #     [
+  #       [
+  #         "yy_syntax_error",
+  #         "grn_ecmascript.lemon",
+  #         196
+  #       ]
+  #     ]
   #   ],
   #   [
   #     [
-  #       [
-  #         1
-  #       ],
-  #       [
-  #         [
-  #           "string_slice",
-  #           null
-  #         ]
-  #       ],
-  #       [
-  #         "g"
-  #       ]
+  # 
   #     ]
   #   ]
   # ]
