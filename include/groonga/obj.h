@@ -131,6 +131,8 @@ GRN_API bool
 grn_obj_is_number_family_scalar_accessor(grn_ctx *ctx, grn_obj *obj);
 GRN_API bool
 grn_obj_is_vector_accessor(grn_ctx *ctx, grn_obj *obj);
+GRN_API bool
+grn_obj_is_empty(grn_ctx *ctx, grn_obj *obj, grn_id id);
 GRN_API grn_bool
 grn_obj_is_type(grn_ctx *ctx, grn_obj *obj);
 GRN_API grn_bool

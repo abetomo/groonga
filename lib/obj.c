@@ -909,6 +909,20 @@ grn_obj_is_vector_accessor(grn_ctx *ctx, grn_obj *obj)
   }
 }
 
+bool
+grn_obj_is_empty(grn_ctx *ctx, grn_obj *obj, grn_id id)
+{
+  if (obj->header.type != GRN_COLUMN_VAR_SIZE) {
+    ERR(GRN_FUNCTION_NOT_IMPLEMENTED,
+        "[obj][is-empty] unsupported type: %s",
+        grn_obj_type_to_string(obj->header.type));
+    return false;
+  }
+  uint32_t size = grn_ja_size(ctx, (grn_ja *)obj, id);
+  ctx->rc = GRN_SUCCESS; // todo
+  return size == 0;
+}
+
 grn_bool
 grn_obj_is_type(grn_ctx *ctx, grn_obj *obj)
 {

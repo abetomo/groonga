@@ -2549,7 +2549,7 @@ grn_obj_clear_value(grn_ctx *ctx, grn_obj *obj, grn_id id)
         }
         break;
       case GRN_OBJ_COLUMN_VECTOR:
-        {
+        if (!grn_obj_is_empty(ctx, obj, id)) {
           grn_obj buf;
           GRN_VOID_INIT(&buf);
           rc = grn_obj_set_value(ctx, obj, id, &buf, GRN_OBJ_SET);
