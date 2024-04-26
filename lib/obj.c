@@ -912,15 +912,25 @@ grn_obj_is_vector_accessor(grn_ctx *ctx, grn_obj *obj)
 bool
 grn_obj_is_empty(grn_ctx *ctx, grn_obj *obj, grn_id id)
 {
-  if (obj->header.type != GRN_COLUMN_VAR_SIZE) {
+  switch (obj->header.type) {
+  case GRN_TABLE_HASH_KEY:
+  case GRN_TABLE_PAT_KEY:
+  case GRN_TABLE_DAT_KEY:
+  case GRN_TABLE_NO_KEY:
+  case GRN_COLUMN_FIX_SIZE:
     ERR(GRN_FUNCTION_NOT_IMPLEMENTED,
         "[obj][is-empty] unsupported type: %s",
         grn_obj_type_to_string(obj->header.type));
-    return false;
+    break;
+  case GRN_COLUMN_VAR_SIZE:
+    return grn_ja_is_empty(ctx, (grn_ja *)obj, id);
+  case GRN_COLUMN_INDEX:
+  default:
+    ERR(GRN_FUNCTION_NOT_IMPLEMENTED,
+        "[obj][is-empty] unsupported type: %s",
+        grn_obj_type_to_string(obj->header.type));
   }
-  uint32_t size = grn_ja_size(ctx, (grn_ja *)obj, id);
-  ctx->rc = GRN_SUCCESS; // todo
-  return size == 0;
+  return false;
 }
 
 grn_bool

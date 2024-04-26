@@ -135,6 +135,7 @@ int grn_ja_defrag(grn_ctx *ctx, grn_ja *ja, int threshold);
 GRN_API grn_rc grn_ja_putv(grn_ctx *ctx, grn_ja *ja, grn_id id,
                            grn_obj *vector, int flags);
 GRN_API uint32_t grn_ja_size(grn_ctx *ctx, grn_ja *ja, grn_id id);
+GRN_API bool grn_ja_is_empty(grn_ctx *ctx, grn_ja *ja, grn_id id);
 
 void grn_ja_check(grn_ctx *ctx, grn_ja *ja);
 grn_rc grn_ja_wal_recover(grn_ctx *ctx, grn_ja *ja);
