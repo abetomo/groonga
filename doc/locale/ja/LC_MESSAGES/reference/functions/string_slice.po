@@ -117,11 +117,11 @@ msgstr ""
 msgid "Specify the following key."
 msgstr "以下のキーを指定します。"
 
-msgid "Specify a string to be returned when a substring is an empty string except when specifying 0 for ``length``."
-msgstr "``length`` に0を指定した場合を除いて、部分文字列が空文字列になった場合に返される文字列を指定します。"
-
 msgid "``default_value``"
 msgstr ""
+
+msgid "Specify a string to be returned when a substring is an empty string except when specifying 0 for ``length``."
+msgstr "``length`` に0を指定した場合を除いて、部分文字列が空文字列になった場合に返される文字列を指定します。"
 
 msgid "The default is an empty string."
 msgstr "省略時は空文字列です。"

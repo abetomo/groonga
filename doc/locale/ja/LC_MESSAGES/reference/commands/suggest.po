@@ -66,6 +66,9 @@ msgstr "以下は補完・補正・提案を混ぜた例です。"
 msgid "Parameters"
 msgstr "引数"
 
+msgid "``types``"
+msgstr ""
+
 msgid "Specifies what types are returned by the suggest command."
 msgstr "suggestコマンドでどの種類の候補を返すかを指定します。"
 
@@ -99,32 +102,29 @@ msgstr "補正候補と提案候補を返します::"
 msgid "It returns complete, correction and suggestion::"
 msgstr "補完候補と補正候補と提案候補を返します::"
 
-msgid "``types``"
+msgid "``table``"
 msgstr ""
 
 msgid "Specifies table name that has ``item_${DATA_SET_NAME}`` format. For example, ``item_query`` is a table name if you created dataset by the following command::"
 msgstr "``item_${データセット名}`` というフォーマットのテーブル名を指定します。例えば、以下のコマンドでデータセットを作成した場合はテーブル名として ``item_query`` を指定します::"
 
-msgid "``table``"
+msgid "``column``"
 msgstr ""
 
 msgid "Specifies a column name that has furigana in Katakana in ``table`` table."
 msgstr "``table`` で指定したテーブルにあるふりがな情報を含むカラムを指定します。ふりがなはカタカナで指定します。"
 
-msgid "``column``"
+msgid "``query``"
 msgstr ""
 
 msgid "Specifies query for completion, correction and/or suggestion."
 msgstr "補完・補正・提案対象のクエリーを指定します。"
 
-msgid "``query``"
+msgid "``sortby``"
 msgstr ""
 
 msgid "Specifies sort key."
 msgstr "ソートキーを指定します。"
-
-msgid "``sortby``"
-msgstr ""
 
 msgid "Default:"
 msgstr ""
@@ -132,38 +132,38 @@ msgstr ""
 msgid "``-_score``"
 msgstr ""
 
-msgid "Specifies output columns."
-msgstr "出力するカラムを指定します。"
-
 msgid "``output_columns``"
 msgstr ""
 
+msgid "Specifies output columns."
+msgstr "出力するカラムを指定します。"
+
 msgid "``_key,_score``"
+msgstr ""
+
+msgid "``offset``"
 msgstr ""
 
 msgid "Specifies returned records offset."
 msgstr "返されるレコードのオフセットを指定します。"
 
-msgid "``offset``"
+msgid "``0``"
 msgstr ""
 
-msgid "``0``"
+msgid "``limit``"
 msgstr ""
 
 msgid "Specifies number of returned records."
 msgstr "返されるレコード数を指定します。"
 
-msgid "``limit``"
+msgid "``10``"
 msgstr ""
 
-msgid "``10``"
+msgid "``frequency_threshold``"
 msgstr ""
 
 msgid "Specifies threshold for item frequency. Returned records must have ``_score`` that is greater than or equal to ``frequency_threshold``."
 msgstr "出現頻度に対する閾値を指定します。返されるレコードの ``_score`` 値は ``frequency_threshold`` 以上になります。"
-
-msgid "``frequency_threshold``"
-msgstr ""
 
 msgid "``100``"
 msgstr ""
@@ -175,6 +175,9 @@ msgid "Specifies threshold for conditional probability. Conditional probability 
 msgstr "条件付き確率に対する閾値を指定します。学習データに対して条件付き確率を使います。ここで使う条件付き確率は、入力した ``query`` と同じ入力があったときにクエリが検索された確率です。返されるレコードの条件付き確率は ``conditional_probability_threshold`` 以上になります。"
 
 msgid "``0.2``"
+msgstr ""
+
+msgid "``prefix_search``"
 msgstr ""
 
 msgid "Specifies whether optional prefix search is used or not in completion."
@@ -195,13 +198,13 @@ msgstr ""
 msgid "Prefix search is never used."
 msgstr "前方一致検索を実行しません。"
 
-msgid "Prefix search is used only when other search can't find any records."
-msgstr "他の検索でレコードが見つからない場合のみ前方一致検索を実行します。"
-
 msgid "``auto``"
 msgstr ""
 
-msgid "``prefix_search``"
+msgid "Prefix search is used only when other search can't find any records."
+msgstr "他の検索でレコードが見つからない場合のみ前方一致検索を実行します。"
+
+msgid "``similar_search``"
 msgstr ""
 
 msgid "Specifies whether optional similar search is used or not in correction."
@@ -215,9 +218,6 @@ msgstr "類似検索を実行しません。"
 
 msgid "Similar search is used only when other search can't find any records."
 msgstr "他の検索でレコードが見つからない場合のみ類似検索を実行します。"
-
-msgid "``similar_search``"
-msgstr ""
 
 msgid "Return value"
 msgstr "戻り値"

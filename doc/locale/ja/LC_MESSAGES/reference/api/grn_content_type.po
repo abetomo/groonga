@@ -33,10 +33,10 @@ msgstr "リファレンス"
 msgid "Here are available values:"
 msgstr "指定可能な値は以下の通りです。"
 
-msgid "It means that outputting nothing or using the original format. :doc:`/reference/commands/dump` uses the type."
+msgid "`GRN_CONTENT_NONE`"
 msgstr ""
 
-msgid "`GRN_CONTENT_NONE`"
+msgid "It means that outputting nothing or using the original format. :doc:`/reference/commands/dump` uses the type."
 msgstr ""
 
 msgid "`GRN_CONTENT_TSV`"

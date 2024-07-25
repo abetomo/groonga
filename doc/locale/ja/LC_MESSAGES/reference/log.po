@@ -36,6 +36,9 @@ msgstr "プロセスログのフォーマットは以下の通りです。::"
 msgid "Some multi-process based applications such as :doc:`/reference/executables/groonga-httpd` and `PGroonga <https://pgroonga.github.io/>`_ use the following format::"
 msgstr ":doc:`/reference/executables/groonga-httpd` や `PGroonga <https://pgroonga.github.io/ja/>`_ といったマルチプロセスベースのアプリケーションでのフォーマットは以下の通りです。::"
 
+msgid "TIME_STAMP"
+msgstr ""
+
 msgid "It's time stamp uses the following format::"
 msgstr "タイムスタンプのフォーマットは次の通りです。::"
 
@@ -84,7 +87,7 @@ msgstr "マイクロ秒（6桁）"
 msgid "Example::"
 msgstr "実行例::"
 
-msgid "TIME_STAMP"
+msgid "L"
 msgstr ""
 
 msgid "Log level with a character. Here is a character and log level map."
@@ -144,20 +147,17 @@ msgstr ""
 msgid "Dump"
 msgstr "ダンプ"
 
-msgid "L"
+msgid "PID"
 msgstr ""
 
 msgid "The process ID."
 msgstr "プロセスID。"
 
-msgid "PID"
+msgid "MESSAGE"
 msgstr ""
 
 msgid "Details about the log with free format."
 msgstr "自由形式でのログの詳細。"
-
-msgid "MESSAGE"
-msgstr ""
 
 msgid "Example with PID::"
 msgstr "実行例（PIDを含む場合）::"
@@ -171,11 +171,11 @@ msgstr "クエリーログはデフォルトでは無効になっています。
 msgid "Query log uses the following formats::"
 msgstr "クエリーログのフォーマットは次の通りです。::"
 
-msgid "ID of a thread. Groonga process creates threads to process requests concurrently. Each thread outputs some logs for a request. This ID can be used to extract a log sequence by a thread."
-msgstr "スレッドのID。Groongaプロセスは並列に複数のリクエストを処理するためにスレッドを作ります。各スレッドは1つのリクエストにつき複数のログを出力します。このIDを使うとスレッド毎の一連のログを抽出できます。"
-
 msgid "ID"
 msgstr ""
+
+msgid "ID of a thread. Groonga process creates threads to process requests concurrently. Each thread outputs some logs for a request. This ID can be used to extract a log sequence by a thread."
+msgstr "スレッドのID。Groongaプロセスは並列に複数のリクエストを処理するためにスレッドを作ります。各スレッドは1つのリクエストにつき複数のログを出力します。このIDを使うとスレッド毎の一連のログを抽出できます。"
 
 msgid ">"
 msgstr ""
@@ -195,26 +195,26 @@ msgstr ""
 msgid "A character that indicates query is finished."
 msgstr "クエリーが完了したことを示す文字。"
 
+msgid "QUERY"
+msgstr ""
+
 msgid "A query to be processed."
 msgstr "処理対象のクエリー。"
 
-msgid "QUERY"
+msgid "ELAPSED_TIME"
 msgstr ""
 
 msgid "Elapsed time in nanoseconds since query is started."
 msgstr "クエリーの処理を開始してからの時間。単位はナノ秒。"
 
-msgid "ELAPSED_TIME"
+msgid "PROGRESS"
 msgstr ""
 
 msgid "A processed work at the time."
 msgstr "このときに処理した内容。"
 
-msgid "PROGRESS"
+msgid "RETURN_CODE"
 msgstr ""
 
 msgid "A return code for the query."
 msgstr "クエリーのリターンコード。"
-
-msgid "RETURN_CODE"
-msgstr ""

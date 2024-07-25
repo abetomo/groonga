@@ -79,11 +79,11 @@ msgstr ""
 msgid "User profile"
 msgstr "ユーザーの自己紹介"
 
-msgid "Indexes for ``follower`` column in ``Users`` table. With this indexes, you can search users who follows the person."
-msgstr "``Users`` テーブルの ``follower`` カラムに対するインデックス。 このインデックスを作ることで、あるユーザーをフォローしているユーザーを検索できるようになります。"
-
 msgid "``followee``"
 msgstr ""
+
+msgid "Indexes for ``follower`` column in ``Users`` table. With this indexes, you can search users who follows the person."
+msgstr "``Users`` テーブルの ``follower`` カラムに対するインデックス。 このインデックスを作ることで、あるユーザーをフォローしているユーザーを検索できるようになります。"
 
 msgid "Comments table"
 msgstr "Commentsテーブル"
@@ -133,11 +133,11 @@ msgstr ""
 msgid "Person who write comment"
 msgstr "コメントを書いたユーザー"
 
-msgid "Indexes for ``favorites`` column in ``Users`` table. With this indexes, you can search the person who mark comment as favorite one."
-msgstr "``Users`` テーブルの ``favorites`` カラムに対するインデックス。 このインデックスを作ることで、指定したコメントを誰がお気に入りに入れているのかを検索できるようになります。"
-
 msgid "``favorited_by``"
 msgstr ""
+
+msgid "Indexes for ``favorites`` column in ``Users`` table. With this indexes, you can search the person who mark comment as favorite one."
+msgstr "``Users`` テーブルの ``favorites`` カラムに対するインデックス。 このインデックスを作ることで、指定したコメントを誰がお気に入りに入れているのかを検索できるようになります。"
 
 msgid "HashTags table"
 msgstr "HashTagsテーブル"
@@ -148,11 +148,11 @@ msgstr "コメントのハッシュタグを一覧で保存するためのテー
 msgid "Hash tag"
 msgstr "ハッシュタグ"
 
-msgid "Indexes for ``Comments.hash_tags``. With this indexes, you can search list of comments with specified hash tags."
-msgstr "「Comments.hash_tags」のインデックス。 このインデックスを作ることで、指定したハッシュタグのついているコメントの一覧を出すことが出来るようになります。"
-
 msgid "``hash_index``"
 msgstr ""
+
+msgid "Indexes for ``Comments.hash_tags``. With this indexes, you can search list of comments with specified hash tags."
+msgstr "「Comments.hash_tags」のインデックス。 このインデックスを作ることで、指定したハッシュタグのついているコメントの一覧を出すことが出来るようになります。"
 
 msgid "Bigram table"
 msgstr "Bigramテーブル"
@@ -163,11 +163,11 @@ msgstr "ユーザー情報・コメントで全文検索が出来るようにす
 msgid "Word"
 msgstr "単語"
 
-msgid "Indexes of user information. This column contains indexes of user name (``Users.name``), current location (``Users.location_str``), profile (``Users.description``)."
-msgstr "ユーザー情報のインデックス。 このカラムは、ユーザー名「Users.name」、現在地「Users.location_str」、自己紹介文「Users.description」のインデックスになっています。"
-
 msgid "``users_index``"
 msgstr ""
+
+msgid "Indexes of user information. This column contains indexes of user name (``Users.name``), current location (``Users.location_str``), profile (``Users.description``)."
+msgstr "ユーザー情報のインデックス。 このカラムは、ユーザー名「Users.name」、現在地「Users.location_str」、自己紹介文「Users.description」のインデックスになっています。"
 
 msgid "``comment_index``"
 msgstr ""

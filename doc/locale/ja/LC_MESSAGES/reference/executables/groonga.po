@@ -525,10 +525,10 @@ msgstr ""
 msgid "ログ出力を行います。"
 msgstr ""
 
-msgid "ロックを解除します。"
+msgid "``clearlock``"
 msgstr ""
 
-msgid "``clearlock``"
+msgid "ロックを解除します。"
 msgstr ""
 
 msgid "Usage"

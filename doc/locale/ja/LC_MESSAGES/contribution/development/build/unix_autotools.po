@@ -85,23 +85,23 @@ msgstr "開発者向けのオススメの ``configure`` オプションは次の
 msgid "Here are descriptions of these options:"
 msgstr "それぞれのオプションの説明です。"
 
+msgid "``--prefix=/tmp/local``"
+msgstr ""
+
 msgid "It specifies that you install your Groonga into temporary directory. You can do \"clean install\" by removing ``/tmp/local`` directory. It'll be useful for debugging install."
 msgstr "あなたのGroongaを一時ディレクトリーにインストールように指定しています。 ``/tmp/local`` ディレクトリーを削除することで「クリーンインストール」を試すことができます。インストール処理をデバッグするときに便利です。"
 
-msgid "``--prefix=/tmp/local``"
+msgid "``--enable-debug``"
 msgstr ""
 
 msgid "It enables debug options for C/C++ compiler. It's useful for debugging on debugger such as GDB and LLDB."
 msgstr "C/C++コンパイラーのデバッグオプションを有効にします。GDBやLLDBなどのデバッガーでデバッグするときに便利です。"
 
-msgid "``--enable-debug``"
+msgid "``--eanble-mruby``"
 msgstr ""
 
 msgid "It enables mruby support. The feature isn't enabled by default but developers should enable the feature."
 msgstr "mrubyサポートを有効にします。この機能はデフォルトで無効になっていますが、開発者はこの機能を有効にするべきです。"
-
-msgid "``--eanble-mruby``"
-msgstr ""
 
 msgid "``--with-ruby``"
 msgstr ""
