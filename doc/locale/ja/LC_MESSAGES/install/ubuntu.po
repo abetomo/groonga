@@ -14,7 +14,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "`groonga` package is the minimum set of fulltext search engine. If you want to use Groonga for server use, you can install additional preconfigured packages."
 msgstr "`groonga`パッケージは全文検索のための最小構成パッケージです。Groongaをサーバー用途で使うなら、設定済みの追加パッケージをインストールすることができます。"
