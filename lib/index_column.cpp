@@ -23,6 +23,7 @@
 #include "grn_hash.h"
 
 #include <string.h>
+#include <map>
 #include <math.h>
 
 static uint64_t grn_index_sparsity = 10;
@@ -379,7 +380,7 @@ typedef struct {
   struct {
     grn_id token_id;
     grn_posting posting;
-    grn_hash *token_counters;
+    std::map<grn_id, uint32_t> token_counters;
   } current;
   struct {
     grn_obj value;
@@ -405,19 +406,6 @@ grn_index_column_diff_data_init(grn_ctx *ctx,
   GRN_PTR_INIT(&(data->source_columns), GRN_OBJ_VECTOR, GRN_ID_NIL);
   GRN_VOID_INIT(&(data->buffers.value));
   GRN_UINT32_INIT(&(data->buffers.postings), GRN_OBJ_VECTOR);
-  data->current.token_counters = grn_hash_create(ctx,
-                                                 NULL,
-                                                 sizeof(grn_id),
-                                                 sizeof(uint32_t),
-                                                 GRN_OBJ_TABLE_HASH_KEY);
-  if (!data->current.token_counters) {
-    ERR(GRN_NO_MEMORY_AVAILABLE,
-        "[index-column][diff] failed to create token counters");
-
-    GRN_OBJ_FIN(ctx, &(data->source_columns));
-    GRN_OBJ_FIN(ctx, &(data->buffers.value));
-    GRN_OBJ_FIN(ctx, &(data->buffers.postings));
-  }
 }
 
 static void
@@ -436,7 +424,6 @@ grn_index_column_diff_data_fin(grn_ctx *ctx, grn_index_column_diff_data *data)
 
   GRN_OBJ_FIN(ctx, &(data->buffers.value));
   GRN_OBJ_FIN(ctx, &(data->buffers.postings));
-  grn_hash_close(ctx, data->current.token_counters);
 }
 
 static void
@@ -845,42 +832,9 @@ static void
 grn_index_column_diff_process_token_id(grn_ctx *ctx,
                                        grn_index_column_diff_data *data)
 {
-  {
-    void *value = NULL;
-    int added = 0;
-    const grn_id token_counter_id = grn_hash_add(ctx,
-                                                 data->current.token_counters,
-                                                 &(data->current.token_id),
-                                                 sizeof(grn_id),
-                                                 &value,
-                                                 &added);
-    if (token_counter_id == GRN_ID_NIL) {
-      grn_rc rc = ctx->rc;
-      if (rc == GRN_SUCCESS) {
-        rc = GRN_UNKNOWN_ERROR;
-      }
-      char message[GRN_CTX_MSGSIZE];
-      grn_strcpy(message, GRN_CTX_MSGSIZE, ctx->errbuf);
-      ERR(rc,
-          "[index-column][diff] failed to add a token counter: "
-          "<%.*s>: %u: %s",
-          data->index.name_size,
-          data->index.name,
-          data->current.token_id,
-          message);
-      return;
-    }
-
-    uint32_t *token_counter = value;
-    if (added) {
-      *token_counter = 0;
-    } else {
-      (*token_counter)++;
-    }
-
-    if (*token_counter >= GRN_II_MAX_TF) {
-      return;
-    }
+  if (++(data->current.token_counters[data->current.token_id]) >
+      GRN_II_MAX_TF) {
+    return;
   }
 
   void *value = NULL;
@@ -1208,12 +1162,7 @@ grn_index_column_diff_compute(grn_ctx *ctx, grn_index_column_diff_data *data)
 
       data->current.posting.rid = id;
       data->current.posting.sid = (uint32_t)(i + 1);
-      /* This is faster than grn_hash_truncate() or grn_hash_create(). */
-      GRN_HASH_EACH_BEGIN(ctx, data->current.token_counters, cursor, id)
-      {
-        grn_hash_cursor_delete(ctx, cursor, NULL);
-      }
-      GRN_HASH_EACH_END(ctx, cursor);
+      data->current.token_counters.clear();
 
       GRN_BULK_REWIND(value);
       grn_obj_get_value(ctx, source, id, value);
