@@ -23,8 +23,8 @@
 #include "grn_hash.h"
 
 #include <string.h>
-#include <map>
 #include <math.h>
+#include <unordered_map>
 
 static uint64_t grn_index_sparsity = 10;
 
@@ -380,7 +380,7 @@ typedef struct {
   struct {
     grn_id token_id;
     grn_posting posting;
-    std::map<grn_id, uint32_t> token_counters;
+    std::unordered_map<grn_id, uint32_t> token_counters;
   } current;
   struct {
     grn_obj value;
