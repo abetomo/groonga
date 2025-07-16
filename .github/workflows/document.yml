@@ -4,13 +4,6 @@ on:
     paths:
       - '**/*.cmake'
       - '**/*.cmake.in'
-      - '**/CMakeLists.txt'
-      - '.github/workflows/document.yml'
-      - 'Rakefile'
-      - 'cmake/**'
-      - 'doc/**'
-      - 'include/**/*.h'
-      - 'include/**/*.hpp'
   pull_request:
     paths:
       - '**/*.cmake'
