@@ -338,7 +338,7 @@ namespace {
         if (value == 0) {
           return false;
         }
-        _id_ = value;
+        _id_ = static_cast<grn_id>(value);
       }
       auto bulk = grn_obj_open(ctx_, GRN_BULK, 0, GRN_DB_INT64);
       GRN_INT64_SET(ctx_, bulk, value);
@@ -353,7 +353,7 @@ namespace {
         if (value == 0) {
           return false;
         }
-        _id_ = value;
+        _id_ = static_cast<grn_id>(value);
       }
       auto bulk = grn_obj_open(ctx_, GRN_BULK, 0, GRN_DB_UINT64);
       GRN_UINT64_SET(ctx_, bulk, value);
@@ -1393,7 +1393,7 @@ namespace {
                                                domain.get(),
                                                name.data(),
                                                name.length(),
-                                               weight);
+                                               static_cast<float>(weight));
           if (rc != GRN_SUCCESS) {
             return rc;
           }
@@ -1415,7 +1415,7 @@ namespace {
                                              domain.get(),
                                              name.data(),
                                              name.length(),
-                                             weight);
+                                             static_cast<float>(weight));
         if (rc != GRN_SUCCESS) {
           return rc;
         }
@@ -1546,10 +1546,11 @@ namespace {
           if (grn_value.header.domain != GRN_DB_UINT64) {
             return GRN_INVALID_ARGUMENT;
           }
-          auto rc = grn_uvector_add_element_record(ctx,
-                                                   caster->dest,
-                                                   GRN_UINT64_VALUE(&grn_value),
-                                                   0);
+          auto rc = grn_uvector_add_element_record(
+            ctx,
+            caster->dest,
+            static_cast<grn_id>(GRN_UINT64_VALUE(&grn_value)),
+            0);
           if (rc != GRN_SUCCESS) {
             return rc;
           }
@@ -2085,42 +2086,42 @@ namespace {
       return grn::bulk::put<int8_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<int8_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_UINT8:
       return grn::bulk::put<uint8_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<uint8_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_INT16:
       return grn::bulk::put<int16_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<int16_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_UINT16:
       return grn::bulk::put<uint16_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<uint16_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_INT32:
       return grn::bulk::put<int32_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<int32_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_UINT32:
       return grn::bulk::put<uint32_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<uint32_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_INT64:
       return grn::bulk::put<int64_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<int64_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_UINT64:
       return grn::bulk::put<uint64_t>(
         ctx,
         caster->dest,
-        grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+        static_cast<uint64_t>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_TIME:
       return num2time(ctx, caster, grn::bulk::get<SOURCE>(ctx, caster->src, 0));
 #ifdef GRN_HAVE_BFLOAT16
@@ -2131,13 +2132,15 @@ namespace {
         grn::bulk::get<SOURCE>(ctx, caster->src, 0));
 #endif
     case GRN_DB_FLOAT32:
-      return num2float<float>(ctx,
-                              caster,
-                              grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+      return num2float<float>(
+        ctx,
+        caster,
+        static_cast<float>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_FLOAT:
-      return num2float<double>(ctx,
-                               caster,
-                               grn::bulk::get<SOURCE>(ctx, caster->src, 0));
+      return num2float<double>(
+        ctx,
+        caster,
+        static_cast<double>(grn::bulk::get<SOURCE>(ctx, caster->src, 0)));
     case GRN_DB_SHORT_TEXT:
     case GRN_DB_TEXT:
     case GRN_DB_LONG_TEXT:
@@ -2257,8 +2260,9 @@ grn_caster_cast_text_to_bulk(grn_ctx *ctx, grn_caster *caster)
         errno = 0;
         d = strtod(GRN_TEXT_VALUE(&buf), &end);
         if (!errno && end + 1 == GRN_BULK_CURR(&buf)) {
-          v.tv_sec = d;
-          v.tv_nsec = ((d - v.tv_sec) * GRN_TIME_NSEC_PER_SEC);
+          v.tv_sec = static_cast<int64_t>(d);
+          v.tv_nsec =
+            static_cast<int32_t>(((d - v.tv_sec) * GRN_TIME_NSEC_PER_SEC));
         } else {
           rc = GRN_INVALID_ARGUMENT;
         }
@@ -2778,7 +2782,7 @@ grn_caster_cast(grn_ctx *ctx, grn_caster *caster)
     rc = grn_obj_reinit(ctx,
                         caster->dest,
                         caster->dest->header.domain,
-                        caster->dest->header.flags);
+                        static_cast<uint8_t>(caster->dest->header.flags));
     break;
   default:
     if (caster->src->header.domain >= GRN_N_RESERVED_TYPES) {

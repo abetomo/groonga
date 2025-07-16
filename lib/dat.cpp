@@ -903,7 +903,7 @@ grn_dat_create(grn_ctx *ctx, const char *path, uint32_t,
   dat->header->wal_id = 0;
   dat->encoding = encoding;
 
-  dat->obj.header.flags = dat->header->flags;
+  dat->obj.header.flags = static_cast<grn_obj_flags>(dat->header->flags);
 
   return dat;
 }
@@ -954,7 +954,7 @@ grn_dat_open(grn_ctx *ctx, const char *path)
     grn_obj *normalizer = grn_ctx_at(ctx, dat->header->normalizer);
     grn_table_modules_add(ctx, &(dat->normalizers), normalizer);
   }
-  dat->obj.header.flags = dat->header->flags;
+  dat->obj.header.flags = static_cast<grn_obj_flags>(dat->header->flags);
   return dat;
 }
 
@@ -1346,7 +1346,7 @@ grn_dat_scan(grn_ctx *ctx, grn_dat *dat, const char *str,
         if (trie->lcp_search(str, str_size, &key_pos)) {
           const grn::dat::Key &key = trie->get_key(key_pos);
           scan_hits[num_scan_hits].id = key.id();
-          scan_hits[num_scan_hits].offset = str - begin;
+          scan_hits[num_scan_hits].offset = static_cast<unsigned int>(str - begin);
           scan_hits[num_scan_hits].length = key.length();
           str += key.length();
           str_size -= key.length();

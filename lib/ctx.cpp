@@ -2304,7 +2304,7 @@ grn_ctx_info_get(grn_ctx *ctx, grn_ctx_info *info)
     return GRN_INVALID_ARGUMENT;
   }
   if (ctx->impl->com) {
-    info->fd = ctx->impl->com->fd;
+    info->fd = static_cast<int>(ctx->impl->com->fd);
     info->com_status = ctx->impl->com_status;
     info->outbuf = ctx->impl->output.buf;
     info->stat = ctx->stat;

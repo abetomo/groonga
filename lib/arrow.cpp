@@ -790,8 +790,9 @@ namespace grnarrow {
       float weight;
       switch (weight_column->type_id()) {
       case arrow::Type::INT32:
-        weight = std::static_pointer_cast<arrow::Int32Array>(weight_column)
-                   ->Value(index_);
+        weight = static_cast<float>(
+          std::static_pointer_cast<arrow::Int32Array>(weight_column)
+            ->Value(index_));
         break;
       case arrow::Type::FLOAT:
         weight = std::static_pointer_cast<arrow::FloatArray>(weight_column)

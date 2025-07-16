@@ -1292,14 +1292,14 @@ static uint8_t *
 pack_1(uint32_t *p, uint8_t *rp)
 {
   uint8_t v;
-  v = *p++ << 7;
+  v = static_cast<uint8_t>(*p++ << 7);
   v += *p++ << 6;
   v += *p++ << 5;
   v += *p++ << 4;
   v += *p++ << 3;
   v += *p++ << 2;
   v += *p++ << 1;
-  *rp++ = v + *p++;
+  *rp++ = static_cast<uint8_t>(v + *p++);
   return rp;
 }
 static const uint8_t *
@@ -1319,14 +1319,14 @@ static uint8_t *
 pack_2(uint32_t *p, uint8_t *rp)
 {
   uint8_t v;
-  v = *p++ << 6;
+  v = static_cast<uint8_t>(*p++ << 6);
   v += *p++ << 4;
   v += *p++ << 2;
-  *rp++ = v + *p++;
-  v = *p++ << 6;
+  *rp++ = static_cast<uint8_t>(v + *p++);
+  v = static_cast<uint8_t>(*p++ << 6);
   v += *p++ << 4;
   v += *p++ << 2;
-  *rp++ = v + *p++;
+  *rp++ = static_cast<uint8_t>(v + *p++);
   return rp;
 }
 static const uint8_t *
@@ -1346,14 +1346,16 @@ static uint8_t *
 pack_3(uint32_t *p, uint8_t *rp)
 {
   uint8_t v;
-  v = *p++ << 5;
+  v = static_cast<uint8_t>(*p++ << 5);
   v += *p++ << 2;
-  *rp++ = v + (*p >> 1); v = *p++ << 7;
+  *rp++ = static_cast<uint8_t>(v + (*p >> 1));
+  v = static_cast<uint8_t>(*p++ << 7);
   v += *p++ << 4;
   v += *p++ << 1;
-  *rp++ = v + (*p >> 2); v = *p++ << 6;
+  *rp++ = static_cast<uint8_t>(v + (*p >> 2));
+  v = static_cast<uint8_t>(*p++ << 6);
   v += *p++ << 3;
-  *rp++ = v + *p++;
+  *rp++ = static_cast<uint8_t>(v + *p++);
   return rp;
 }
 static const uint8_t *
