@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1773642234857,
+  "lastUpdate": 1774256391248,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -5916,6 +5916,108 @@ window.BENCHMARK_DATA = {
             "value": 0.01760529999995697,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0017449999999997468 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "committer": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "distinct": true,
+          "id": "0ef05f268b15125cc1860e77d9235ed1b5256962",
+          "message": "http: fix `buffer_offset` not reset\n\nThe reset of `buffer_offset` was missing, so it is reset.\nThis process is only used under specific conditions, which is likely why it went unnoticed until now.\nSpecifically, this applies in the following case:\n\n1. First received.\n\nOnly the full first chunk and the size of the second chunk were received, up to the `\\r`.\nThe body of the second chunk was not received.\n(Since a value must be set for `buffer_offset`, this issue does not occur when only the size is received.)\n\nExample:\n\n```\nPOST /d/status HTTP/1.1\\r\\n\nHost: localhost:10041\\r\\n\nTransfer-Encoding: chunked\\r\\n\nContent-Type: application/x-www-form-urlencoded\\r\\n\n\\r\\n\n1\\r\\n\nA\\r\\n\n1\\r\n```\n\n2. Second received.\n\nReceived the Body of the second chunk. But only received up to `\\r`.\n\nExample:\n\n```\n\\n\nB\\r\n```\n\n3. Third received.\n\nReceived the `\\n` from the second chunk and the third chunk.\n\nExample:\n\n```\n\\n\n2\\r\\n\nCC\\r\\n\n```\n\nAt this point, when the third chunk is received, the check for the position of `\\n` fails,\nresulting in `chunk end LF doesn't exit` error.\nSince the request is actually valid, this error is incorrect.",
+          "timestamp": "2026-03-23T17:50:07+09:00",
+          "tree_id": "dc266af659157c3d119f7efcb3a488327beb8131",
+          "url": "https://github.com/abetomo/groonga/commit/0ef05f268b15125cc1860e77d9235ed1b5256962"
+        },
+        "date": 1774256389926,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.3832877870000857,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.014944999999999833 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.2896855049999658,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.014583000000000068 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.015808166999875084,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0003460000000006236 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.02109460200006197,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0005170000000000174 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.4766094000000294,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.000197000000000086 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.24471519199988734,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0068290000000000295 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.1406609790000175,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005595000000000155 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.016429473000073358,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0014840000000002629 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.01703258399987817,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.001441000000000081 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.06161912899995059,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00715300000000009 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.06782192499991879,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.007610999999999729 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.017278206000014507,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0017629999999999313 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.02703024100003404,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0015299999999998926 s\nthreads: undefined"
           }
         ]
       }
