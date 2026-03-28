@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1774498742370,
+  "lastUpdate": 1774656798469,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -6120,6 +6120,108 @@ window.BENCHMARK_DATA = {
             "value": 0.02487439000003633,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0015310000000003932 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "committer": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "distinct": true,
+          "id": "2a157cb44fec071a16afa8bb7fb07ee819f6ede5",
+          "message": "cmake openzl: suppress the declaration-after-statement warning\n\n= Issue\nWhen building Groonga with MariaDB, the bundled OpenZL library fails to compile with an error like:\n\n```\n/home/buildbot/_deps/openzl-src/src/openzl/codecs/common/bitstream/ff_bitstream.h:44:5: error: ISO C90 forbids mixed declarations and code [-Werror=declaration-after-statement]\n```\n\n= Cause\nMariaDB enforces `-Wdeclaration-after-statement` as an error, but OpenZL uses C99-style mixed declarations and code.\n\n= Solution\nSuppress the `-Wdeclaration-after-statement` warning for the OpenZL target,\nfollowing the same approach used for bundled H3 and llama.cpp.\nWe also suppress C4244 and C4267 for MSVC.",
+          "timestamp": "2026-03-28T09:03:07+09:00",
+          "tree_id": "4c3aa49fc7e374b595e0c186362474f0c3276469",
+          "url": "https://github.com/abetomo/groonga/commit/2a157cb44fec071a16afa8bb7fb07ee819f6ede5"
+        },
+        "date": 1774656797617,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.38953667800006997,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.01648100000000019 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.2799823369999217,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.013473000000000096 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.015520047999984854,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00040100000000031777 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.015378892999933669,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00039400000000000546 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.4418556869999861,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.0003230000000000177 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.2466192029999661,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005624000000000073 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.14259355400014329,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005625999999999909 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.016601441000034356,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0015220000000002454 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.016593325000030745,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0014779999999999238 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.067848232999836,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0062970000000001775 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.07190005599989036,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006891000000000647 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.017546560000141653,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.001738999999999491 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.01778824899997744,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0015600000000003666 s\nthreads: undefined"
           }
         ]
       }
