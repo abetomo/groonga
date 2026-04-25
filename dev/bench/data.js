@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777024259917,
+  "lastUpdate": 1777083903818,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -6630,6 +6630,108 @@ window.BENCHMARK_DATA = {
             "value": 0.026491528999997627,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0016999999999995075 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "committer": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "distinct": true,
+          "id": "324ea832c8964679444f19f538e8e433239cb97b",
+          "message": "Fix one definition rule error\n\nGitHub fixes GH-2787\n\nThe ODR violation happens because function pointer types like `grn_tokenizer_init_func` take `grn_tokenizer_query` as an argument,\nand `grn_tokenizer_query` has two different definitions.\n\nInclude `grn_tokenizer.h` from `grn_db.h` so that the non-deprecated definition is always used.",
+          "timestamp": "2026-04-25T11:20:29+09:00",
+          "tree_id": "b06e360df92c75a94d51bdf06cd15b645c46fe02",
+          "url": "https://github.com/abetomo/groonga/commit/324ea832c8964679444f19f538e8e433239cb97b"
+        },
+        "date": 1777083902821,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.40578949799993325,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.019352000000000022 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.3159608199999866,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.019677999999999418 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.015643469000053756,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00038800000000005497 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.015510617999950682,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0003180000000000127 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.454528324000023,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.00015900000000007575 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.2504246179999541,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005502000000000118 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.1491562719999706,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005298000000000108 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.017139399999905436,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0015860000000002816 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.016681555000047865,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.001566000000000095 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.06672077999996873,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006498999999999852 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.0680964799999515,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0066969999999996754 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.021906987999955163,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005437999999999832 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.026760817000024417,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0017359999999996545 s\nthreads: undefined"
           }
         ]
       }
