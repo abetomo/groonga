@@ -94,9 +94,9 @@ jobs:
     env:
       CC: ${{ matrix.cc }}
       CXX: ${{ matrix.cxx }}
+      GRN_WITH_LTO: ${{ matrix.lto }}
       GRN_WITH_MRUBY: ${{ matrix.mruby }}
       GRN_WITH_UBSAN: ${{ matrix.ubsan }}
-      GRN_WITH_LTO: ${{ matrix.lto }}
     steps:
       - uses: actions/checkout@v6
         with:
