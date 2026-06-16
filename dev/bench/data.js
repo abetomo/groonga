@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779768456352,
+  "lastUpdate": 1781591272411,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -8262,6 +8262,108 @@ window.BENCHMARK_DATA = {
             "value": 0.018387067999981355,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0016509999999999303 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "committer": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "distinct": true,
+          "id": "8cb5c6b7846f737564151be2a44bfce24066d380",
+          "message": "language-model: fix crash on empty content\n\nWhen the text is empty, input is `NULL` and it crashes.\n`tokenize(input, tokens)` calls `strlen(NULL)` to compute the length, which causes the crash.\nUsing `std::string_view(input, input_size)` avoids `strlen(NULL)`.",
+          "timestamp": "2026-06-16T15:11:46+09:00",
+          "tree_id": "30b77b7be4793f286b3d5bf6be8e1824b4cf988b",
+          "url": "https://github.com/abetomo/groonga/commit/8cb5c6b7846f737564151be2a44bfce24066d380"
+        },
+        "date": 1781591271424,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.4088874310000392,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.022539999999999782 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.2892390930002193,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0171679999999996 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.015150735000133864,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00042900000000017924 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.015945588999898064,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0004119999999998569 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.7135818250000057,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.00036799999999992394 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.23629783899991708,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006803000000000087 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.13387395799998103,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005383999999999722 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.017030383999895093,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0017260000000000053 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.017244496000103027,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0016310000000003544 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.060585479999872405,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.007229000000000166 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.0674689899999521,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.008884000000000863 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.022727660000100514,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.005771999999999805 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.026345335999963027,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0014789999999998416 s\nthreads: undefined"
           }
         ]
       }
