@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787702632436,
+  "lastUpdate": 1787926264862,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -12342,6 +12342,108 @@ window.BENCHMARK_DATA = {
             "value": 0.031134348999898975,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0023849999999999982 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "committer": {
+            "email": "abe@clear-code.com",
+            "name": "Abe Tomoaki",
+            "username": "abetomo"
+          },
+          "distinct": true,
+          "id": "bb620ccd8afdaa15d7149dd650e4b31c23d403f0",
+          "message": "ci msys2: build mecab-naist-jdic by ourselves\n\nMSYS2 dropped mingw-w64-mecab-naist-jdic:\n\nhttps://github.com/msys2/MINGW-packages/pull/30998\n\nSo we build it by ourselves.\nNote that mingw-w64-mecab still uses naist-jdic as its default dicdir.",
+          "timestamp": "2026-08-28T23:03:32+09:00",
+          "tree_id": "94a9a0f687ee07ef14dfc4cd306f5eac9905ff28",
+          "url": "https://github.com/abetomo/groonga/commit/bb620ccd8afdaa15d7149dd650e4b31c23d403f0"
+        },
+        "date": 1787926264031,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.3448198449998472,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.012364000000000042 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.26909666699987156,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.011542000000000024 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.014990971000088393,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0004119999999999402 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.0218513659999644,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00041300000000002446 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.6458880100000215,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.0004509999999999792 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.21418118799999775,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006161 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.13845534399979442,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006319000000000158 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.0164174470000944,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0016690000000002259 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.01686132300017107,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0016690000000000316 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.0590054979999195,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00716599999999995 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.06187078200002816,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.008565000000000267 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.02201864599999226,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.002125000000000432 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.022355654000079994,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0020890000000001463 s\nthreads: undefined"
           }
         ]
       }
