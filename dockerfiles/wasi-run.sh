@@ -64,6 +64,7 @@ grntest \
   test/suite/log_put \
   test/suite/normalize \
   test/suite/normalizer_list \
+  test/suite/normalizers/nfkc/unify_kana.test \
   test/suite/object_exist \
   test/suite/object_inspect \
   test/suite/object_list \
