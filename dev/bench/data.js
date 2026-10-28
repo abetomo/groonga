@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792547326440,
+  "lastUpdate": 1793152624337,
   "repoUrl": "https://github.com/abetomo/groonga",
   "entries": {
     "Benchmark": [
@@ -22200,6 +22200,144 @@ window.BENCHMARK_DATA = {
             "value": 0.5668494479999708,
             "unit": "s/iter",
             "extra": "iterations: 5\ncpu: 0.0032130000000000214 s\nthreads: undefined"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kou@clear-code.com",
+            "name": "Sutou Kouhei",
+            "username": "kou"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03856bb5e7b3deb7a417f84f7c8820710aad558a",
+          "message": "ci setup macos: remove needless pkg-config uninstall workaround (#3040)\n\nHomebrew doesn't provide pkg-config@0.29.2 formula anymore. So \"brew\nuninstall pkg-config@0.29.2\" always fails:\n\n    No available formula with the name \"pkg-config@0.29.2\".\n\n\"pkg-config\" is an alias of \"pkgconf\" in Homebrew now. So \"brew\nuninstall pkg-config\" just uninstalls pkgconf that is installed in\nGitHub Actions runner and ./setup.sh installs it again. The macOS jobs\nin the CMake and Autotools workflows also use ./setup.sh without this\nworkaround and they work.\n\nCo-authored-by: Claude Opus 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-28T08:43:07+09:00",
+          "tree_id": "53e49eb7a050761a4d0866477da564a8a6e92f97",
+          "url": "https://github.com/abetomo/groonga/commit/03856bb5e7b3deb7a417f84f7c8820710aad558a"
+        },
+        "date": 1793152622008,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "stdio: json|json: load/data/multiple",
+            "value": 0.295185550000042,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.011222999999999983 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: load/data/short_text",
+            "value": 0.22124849799996582,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0092300000000001 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/multiple",
+            "value": 0.011522679999984575,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00032399999999987994 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: select/olap/n_workers/multiple",
+            "value": 0.012155046999964725,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00029799999999985394 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: sharding/logical_select/filter",
+            "value": 0.4244435920002161,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0006739999999984536 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: sharding/logical_select/n_workers/filter",
+            "value": 0.474353372000337,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.000688000000002742 s\nthreads: undefined"
+          },
+          {
+            "name": "stdio: json|json: wal_recover/db/auto_recovery/column/index",
+            "value": 1.1906023950000417,
+            "unit": "s/iter",
+            "extra": "iterations: 1\ncpu: 0.000152999999998904 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/multiple",
+            "value": 0.17475320900018687,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.004359999999999892 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: load/data/short_text",
+            "value": 0.11238348500012307,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00420699999999985 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/multiple",
+            "value": 0.012548176999985117,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0013390000000000069 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: select/olap/n_workers/multiple",
+            "value": 0.013124241999889819,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0012710000000001054 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: sharding/logical_select/filter",
+            "value": 0.4277751629999784,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.002562999999998483 s\nthreads: undefined"
+          },
+          {
+            "name": "http: json|json: sharding/logical_select/n_workers/filter",
+            "value": 0.44755893699993976,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.002616000000000951 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/multiple",
+            "value": 0.04585230999987289,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.00597000000000017 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: load/data/short_text",
+            "value": 0.04651538299981439,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.006478999999999818 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/multiple",
+            "value": 0.018816623999896365,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0015700000000000713 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: select/olap/n_workers/multiple",
+            "value": 0.023094083999922077,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0018519999999995485 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: sharding/logical_select/filter",
+            "value": 0.43505646400001297,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.002629999999999688 s\nthreads: undefined"
+          },
+          {
+            "name": "http: apache-arrow|apache-arrow: sharding/logical_select/n_workers/filter",
+            "value": 0.44527997700004107,
+            "unit": "s/iter",
+            "extra": "iterations: 5\ncpu: 0.0026229999999941578 s\nthreads: undefined"
           }
         ]
       }
